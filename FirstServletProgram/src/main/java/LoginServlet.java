@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = { "/LoginServlet" },
         initParams = {
                 @WebInitParam(name = "user", value = "Neha"),
-                @WebInitParam(name = "password", value = "Chou123@")
+                @WebInitParam(name = "password", value = "Chougule1@")
         }
 )
 
@@ -31,8 +31,10 @@ public class LoginServlet extends HttpServlet{
         String password = getServletConfig().getInitParameter("password");
 
         String regexName = "^[A-Z]{1}[a-zA-Z]{2,}$";
+        String regexPassword = "^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*[A-Z]){8,}$";
 
-        if(userID.equals(user) && userID.matches(regexName) && password.equals(pwd)) {
+
+        if(userID.equals(user) && userID.matches(regexName) && password.equals(pwd) && password.equals(pwd)) {
             req.setAttribute("user",user);
             req.getRequestDispatcher("LoginSuccess.jsp").forward(req, resp);
         } else {
